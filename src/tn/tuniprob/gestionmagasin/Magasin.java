@@ -1,15 +1,23 @@
 package tn.tuniprob.gestionmagasin;
 
+import tn.tuniprob.Employee;
+
 public class Magasin {
     int identifiant;
     String adresse;
     int capacite;
     Produit[] produits;
 
+    Employee[] employees;
+
+    int comp;
+
+
     public Magasin(int identifiant, String adresse) {
         this.identifiant = identifiant;
         this.adresse = adresse;
         this.produits = new Produit[50];
+
     }
 
     @Override
@@ -74,6 +82,10 @@ public class Magasin {
             return magasin;
         }
     }
+
+
+
+
 
 
 }

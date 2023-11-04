@@ -1,7 +1,11 @@
+import tn.tuniprob.Caissier;
+import tn.tuniprob.Employee;
+import tn.tuniprob.Responsable;
 import tn.tuniprob.gestionmagasin.Magasin;
 import tn.tuniprob.gestionmagasin.Produit;
 
 import java.util.Date;
+import java.util.function.DoubleToIntFunction;
 
 public class Test {
 
@@ -72,6 +76,18 @@ public class Test {
         System.out.println(m3);
         System.out.println("Total des Produits = " + (m1.getTotalProduits() + m2.getTotalProduits() + m3.getTotalProduits()));
     }
+   
+
+    Magasin carrefour  = new Magasin(1, "Centre_ville");
+    Magasin Monoprix = new Magasin(2, "Menzah 6");
+
+
+    Employee CM1 = new Caissier (10,"baha","hammamet",20,123 );
+    Employee CM2 = new Caissier (11,"CM2","hammamet",27,124 );
+    Employee Vm1 = new Responsable(11,"Vm5","add",78,10);
+
+
+
 
 
 }
