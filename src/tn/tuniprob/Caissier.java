@@ -12,20 +12,25 @@ public class Caissier extends Employee {
         return numeroDeCaisse;
     }
 
-    @Override
-    public double calculerSalaire() {
-        double salaireBase = super.calculerSalaire();
-        if (getNbrHeure() > 180) {
-            return salaireBase * 1.15;
-        }
-        return salaireBase;
-    }
+   
 
     @Override
     public String toString() {
         return "Caissier{" +
                 "numeroDeCaisse=" + numeroDeCaisse +
-                "} " + super.toString();
+                "} " + super.toString(); //mrthode recursive
+        
     }
+
+
+    @Override
+    public double calculerSalaire() {
+        double salaireBase = getNbrHeure()*5;
+        if(getNbrHeure()>160){
+            salaireBase+=((getNbrHeure()-180)*2)/100;
+        }
+        return salaireBase;
+    }
+
 }
 

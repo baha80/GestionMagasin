@@ -1,6 +1,6 @@
 package tn.tuniprob;
 
-public class Employee {
+public abstract class Employee {
     private int id; 
     private String nom;
     private String Adress; 
@@ -46,9 +46,8 @@ public class Employee {
     public String toString() {
         return "Employee{" + "id=" + id + ", nom=" + nom + ", Adress=" + Adress + ", nbrHeure=" + nbrHeure + '}';
     }
-
-    public double calculerSalaire() {
-        return nbrHeure * 5; 
-    }
+    
+    public abstract double calculerSalaire();
+    
 }
 

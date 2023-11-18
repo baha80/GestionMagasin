@@ -4,8 +4,9 @@ import tn.tuniprob.Responsable;
 import tn.tuniprob.gestionmagasin.Magasin;
 import tn.tuniprob.gestionmagasin.Produit;
 
+
 import java.util.Date;
-import java.util.function.DoubleToIntFunction;
+
 
 public class Test {
 
@@ -55,26 +56,27 @@ public class Test {
         p2.affecterPrix(0.7f);
         Magasin m1 = new Magasin(8850, "Nabeul");
         System.out.println(m1);
-        m1.ajouterProduit(p1);
-        m1.ajouterProduit(p2);
-        m1.ajouterProduit(p3);
-        m1.ajouterProduit(p4);
+        m1.ajouter(p1);
+        m1.ajouter(p2);
+        m1.ajouter(p3);
+        m1.ajouter(p4);
         System.out.println(m1);
         Magasin m2 = new Magasin(8050, "Hammamet");
         System.out.println(m2);
-        m2.ajouterProduit(p1);
-        m2.ajouterProduit(p2);
-        m2.ajouterProduit(p3);
-        m2.ajouterProduit(p4);
+        m2.ajouter(p1);
+        m2.ajouter(p2);
+        m2.ajouter(p3);
+        m2.ajouter(p4);
         System.out.println(m2);
         Magasin m3 = new Magasin(1100, "Mrezga");
         System.out.println(m3);
-        m3.ajouterProduit(p1);
-        m3.ajouterProduit(p2);
-        m3.ajouterProduit(p3);
-        m3.ajouterProduit(p4);
+        m3.ajouter(p1);
+        m3.ajouter(p2);
+        m3.ajouter(p3);
+        m3.ajouter(p4);
         System.out.println(m3);
-        System.out.println("Total des Produits = " + (m1.getTotalProduits() + m2.getTotalProduits() + m3.getTotalProduits()));
+
+        System.out.println("Total des Produits = " + (Magasin.getTotalProduit() + Magasin.getTotalProduit() + Magasin.getTotalProduit()));
     }
    
 

@@ -1,91 +1,133 @@
 package tn.tuniprob.gestionmagasin;
 
-import tn.tuniprob.Employee;
-
+//import tn.tuniprob.*;
 public class Magasin {
-    int identifiant;
-    String adresse;
-    int capacite;
-    Produit[] produits;
 
-    Employee[] employees;
+    private  int id;
+    private String adresse;
 
-    int comp;
+    private final int CAPACITE=50;
+
+    private Produit [] tabprod=new Produit[CAPACITE];
+
+    private  int comp;
 
 
-    public Magasin(int identifiant, String adresse) {
-        this.identifiant = identifiant;
-        this.adresse = adresse;
-        this.produits = new Produit[50];
+    private static int totalProduit;
+    public Magasin()
+    {}
 
+    public Magasin(int id,String ad)
+    {
+        this.id=id;
+        adresse=ad;
     }
 
-    @Override
-    public String toString() {
-        String s = "";
-        s += "identifiant : " + this.identifiant + " \n";
-        s += "adresse : " + this.adresse + " \n";
-        s += "capacite : " + this.capacite + " \n";
-        String prods = "";
-        for (int i = 0; i < this.capacite; i++) {
-            prods += this.produits[i];
-        }
-        return s + prods;
+    public void ajouter(Produit p)
+    {
+  if(comp<CAPACITE) {
+      if(!chercher(p)){
+      tabprod[comp] = p;
+      comp++;
+      System.out.println("produit ajouté");
+
+      totalProduit++;
+  }else {
+          System.out.println("le produit existe déjà");
+  }}
+  else{
+      System.out.println("magasin plein");
+  }
     }
 
-    public void ajouterProduit(Produit produit) {
-        if (cherche(produit)){
-            System.out.println("this product already exist");
-        }
-        else {
-            this.produits[capacite] = produit;
-            this.capacite++;
-        }
+    public static int getTotalProduit()
+    {
 
+        return totalProduit;
+    }
+    public void afficherLibellePr()
+    {
+      for (int i=0;i<comp;i++)
+          System.out.println("marque :"+tabprod[i].getMarque());
     }
 
-    public int getTotalProduits() {
-        return this.capacite;
-    }
 
-    public boolean cherche(Produit produit) {
-        for (int i = 0; i < produits.length; i++) {
-            if (produit.equals(produits[i])) {
+    public boolean chercher(Produit p)
+    {
+        for (int i=0;i<comp;i++)
+        {
+            if(tabprod[i].comparer(p))
                 return true;
-            }
-        //  produit.compare(produits[i]
-
         }
-
-
         return false;
     }
-    public void supprimerProduit(Produit produit){
-        if (cherche(produit)){
-            for (int i = 0; i < produits.length; i++) {
-                if (produit.equals(produits[i])) {
-                    produits[i]=null;
-                    capacite--;
-                }
+
+    public int chercherP(Produit p) {
+        int indice = -1;
+        for (int i = 0; i < comp; i++) {
+            if (tabprod[i].comparer(p)) {
+                return i;
             }
         }
-        else {
-            System.out.println("this product doesn't exist");
-        }
+        return indice;
     }
 
-    public Magasin compare_magasin(Magasin magasin){
-        if (this.capacite>magasin.capacite){
+    public boolean supprimer(Produit p)
+    {
+        boolean test=false;
+        int indice=chercherP(p);
+
+        if (indice==-1)
+            test=false;
+        else {
+
+            for (int i=indice;i<comp-1;i++)
+            {
+                tabprod[i]=tabprod[i+1];
+                tabprod[i]=null;
+            }
+            comp--;
+            totalProduit--;
+            test=true;
+        }
+        return test;
+    }
+
+    public Magasin plusProduit(Magasin m)
+    {
+        if (this.comp>m.comp)
             return this;
-        }
-        else {
-            return magasin;
-        }
+
+       else if (this.comp<m.comp)
+            return m;
+       return null;
     }
 
+    public String toString()
+    {
 
+        String str="L'ensemble des produits :\n";
 
+        for (int i=0;i<comp;i++)
+            str+=tabprod[i]+"\n";
 
+        return "id ="+id+"adresse :"+adresse+str;
+    }
 
+    public static Magasin plusProduit(Magasin m, Magasin m1) {
+        if (m1.comp > m.comp)
+            return m1;
+        else if (m1.comp < m.comp)
+            return m;
+        return null;
+    }
 
+    // Afficher le nombre des employés par type dans le magasin
+    public void afficherNbrEmploye() {
+        // Implement your logic here to display the number of employees by type in the store
+    }
+
+      
+            
+    
 }
