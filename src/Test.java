@@ -1,3 +1,4 @@
+import org.w3c.dom.ls.LSOutput;
 import tn.tuniprob.Caissier;
 import tn.tuniprob.Employee;
 import tn.tuniprob.Responsable;
@@ -77,19 +78,24 @@ public class Test {
         System.out.println(m3);
 
         System.out.println("Total des Produits = " + (Magasin.getTotalProduit() + Magasin.getTotalProduit() + Magasin.getTotalProduit()));
+
+
+
+
+        Magasin carrefour  = new Magasin(1, "Centre_ville");
+        Magasin Monoprix = new Magasin(2, "Menzah 6");
+
+
+        Employee CM1 = new Caissier (10,"baha","hammamet",20,123 );
+        Employee CM2 = new Caissier (11,"CM2","hammamet",27,124 );
+        Employee Vm1 = new Responsable(11,"Vm5","add",78,10);
+
+       System.out.println(CM1);
+         System.out.println(CM1.calculerSalaire());
     }
    
 
-    Magasin carrefour  = new Magasin(1, "Centre_ville");
-    Magasin Monoprix = new Magasin(2, "Menzah 6");
-
-
-    Employee CM1 = new Caissier (10,"baha","hammamet",20,123 );
-    Employee CM2 = new Caissier (11,"CM2","hammamet",27,124 );
-    Employee Vm1 = new Responsable(11,"Vm5","add",78,10);
-
-
-
-
+     
+   
 
 }
